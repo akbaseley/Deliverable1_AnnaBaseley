@@ -4,3 +4,4 @@ C:\Users\akbas\Documents\GrandCircus\prework\Deliverable1_AnnaBaseley\Deliverabl
 C:\Users\akbas\Documents\GrandCircus\prework\Deliverable1_AnnaBaseley\Deliverable1_AnnaBaseley\obj\Debug\Deliverable1_AnnaBaseley.csproj.CoreCompileInputs.cache
 C:\Users\akbas\Documents\GrandCircus\prework\Deliverable1_AnnaBaseley\Deliverable1_AnnaBaseley\obj\Debug\Deliverable1_AnnaBaseley.exe
 C:\Users\akbas\Documents\GrandCircus\prework\Deliverable1_AnnaBaseley\Deliverable1_AnnaBaseley\obj\Debug\Deliverable1_AnnaBaseley.pdb
+C:\Users\akbas\Documents\GrandCircus\prework\Deliverable1_AnnaBaseley\Deliverable1_AnnaBaseley\obj\Debug\Deliverable1_AnnaBaseley.csprojResolveAssemblyReference.cache

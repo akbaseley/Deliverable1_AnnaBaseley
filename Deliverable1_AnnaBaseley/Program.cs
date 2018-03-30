@@ -17,7 +17,7 @@ namespace AnnaBaseley.Deliberable1b
 
             while (userNumber1.Length != 4)
             {
-                Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with three digits.");
+                Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with four digits.");
 
                 userNumber1 = Console.ReadLine();
             }
@@ -28,10 +28,11 @@ namespace AnnaBaseley.Deliberable1b
 
             while (userNumber2.Length != 4)
             {
-                Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with three digits.");
+                Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with four digits.");
 
                 userNumber2 = Console.ReadLine();
             }
+
             Numbers newNumber = new Numbers();
             newNumber.GetNumbers(userNumber1, userNumber2);
 
@@ -75,7 +76,7 @@ namespace AnnaBaseley.Deliberable1b
             // The Arrays are now added together to form a third Array.
             var List3 = Enumerable.Zip(Array1, Array2, (a, b) => a + b);
             int[] Array3 = List3.ToArray();
-
+            
             //The parts of Array3 are compared, and the output is listed as True or False.
             if (Array3[0] == Array3[1] &&
                 Array3[0] == Array3[2] &&
