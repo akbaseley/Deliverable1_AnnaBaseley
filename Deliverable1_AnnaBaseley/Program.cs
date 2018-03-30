@@ -10,26 +10,12 @@ namespace AnnaBaseley.Deliberable1b
     {
         static void Main(string[] args)
         {
-            Numbers newNumber = new Numbers();
-            newNumber.GetNumbers();
-
-            Console.ReadKey();
-        }
-    }
-
-    class Numbers
-    {
-        public string userNumber1;
-        public string userNumber2;
-
-        public void GetNumbers()
-        {
             //The computer asks the user for two three digit numbers.
             Console.WriteLine("Hello. Please enter a three digit number.");
 
-            userNumber1 = Console.ReadLine();
+            var userNumber1 = Console.ReadLine();
 
-            while (userNumber1.Length != 3)
+            while (userNumber1.Length != 4)
             {
                 Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with three digits.");
 
@@ -38,15 +24,26 @@ namespace AnnaBaseley.Deliberable1b
 
             Console.WriteLine("Thanks!  Could I have one more three digit number?");
 
-            userNumber2 = Console.ReadLine();
+            var userNumber2 = Console.ReadLine();
 
-            while (userNumber2.Length != 3)
+            while (userNumber2.Length != 4)
             {
                 Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with three digits.");
 
                 userNumber2 = Console.ReadLine();
             }
+            Numbers newNumber = new Numbers();
+            newNumber.GetNumbers(userNumber1, userNumber2);
 
+            Console.ReadKey();
+        }
+    }
+
+    class Numbers
+    {
+
+        public void GetNumbers(string userNumber1, string userNumber2)
+        {
             // The three-digit numbers is now changed from variables to integers.
             int number1 = int.Parse(userNumber1.ToString());
             int number2 = int.Parse(userNumber2.ToString());
@@ -81,8 +78,8 @@ namespace AnnaBaseley.Deliberable1b
 
             //The parts of Array3 are compared, and the output is listed as True or False.
             if (Array3[0] == Array3[1] &&
-                Array3[1] == Array3[2] &&
-                Array3[0] == Array3[2])
+                Array3[0] == Array3[2] &&
+                Array3[0] == Array3[3])
             {
                 Console.WriteLine("Each corresponding place in these two numbers add up to the same total: True");
             }
