@@ -11,7 +11,7 @@ namespace AnnaBaseley.Deliberable1b
         static void Main(string[] args)
         {
             //The computer asks the user for two three digit numbers.
-            Console.WriteLine("Hello. Please enter a three digit number.");
+            Console.WriteLine("Hello. Please enter a four digit number.");
 
             var userNumber1 = Console.ReadLine();
 
@@ -22,7 +22,7 @@ namespace AnnaBaseley.Deliberable1b
                 userNumber1 = Console.ReadLine();
             }
 
-            Console.WriteLine("Thanks!  Could I have one more three digit number?");
+            Console.WriteLine("Thanks!  Could I have one more four digit number?");
 
             var userNumber2 = Console.ReadLine();
 
