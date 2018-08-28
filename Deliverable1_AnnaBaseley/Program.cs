@@ -10,83 +10,71 @@ namespace AnnaBaseley.Deliberable1b
     {
         static void Main(string[] args)
         {
-            //The computer asks the user for two three digit numbers.
-            Console.WriteLine("Hello. Please enter a four digit number.");
+            int UserNumber1 = GetNumbers("Hello. Please enter a number.");
+            int UserNumber2 = GetNumbers("Thanks!  Could I have one more number? Make sure it has the same number of digits as the first number.");
 
-            var userNumber1 = Console.ReadLine();
-
-            while (userNumber1.Length != 4)
+            while (UserNumber1.ToString().Length != UserNumber2.ToString().Length)
             {
-                Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with four digits.");
-
-                userNumber1 = Console.ReadLine();
+                UserNumber2 = GetNumbers("I'm sorry.  Could you try that again?  The number needs to be a whole number with four digits.");
             }
 
-            Console.WriteLine("Thanks!  Could I have one more four digit number?");
+            int[] NumberArr1 = CreateArrays(UserNumber1);
+            int[] NumberArr2 = CreateArrays(UserNumber2);
 
-            var userNumber2 = Console.ReadLine();
+            int[] SumArray = CreateArrays(NumberArr1, NumberArr2);
 
-            while (userNumber2.Length != 4)
-            {
-                Console.WriteLine("I'm sorry.  Could you try that again?  The number needs to be a whole number with four digits.");
-
-                userNumber2 = Console.ReadLine();
-            }
-
-            Numbers newNumber = new Numbers();
-            newNumber.GetNumbers(userNumber1, userNumber2);
+            Result(SumArray);
 
             Console.ReadKey();
         }
-    }
-
-    class Numbers
-    {
-
-        public void GetNumbers(string userNumber1, string userNumber2)
+        public static int GetNumbers(string message)
         {
-            // The three-digit numbers is now changed from variables to integers.
-            int number1 = int.Parse(userNumber1.ToString());
-            int number2 = int.Parse(userNumber2.ToString());
+            Console.WriteLine(message);
+            int userNumber = int.Parse(Console.ReadLine());
+            return userNumber;
+        }
 
-            // The strings are divided into lists of integers.
-            List<int> List1 = new List<int>();
-            while (number1 > 0)
+        public static int[] CreateArrays(int UserNumber)
+        {
+            int[] NumArray = new int[UserNumber.ToString().Length];
+
+            for (int i = 0; i < NumArray.Length; i++)
             {
-                int digit;
-                number1 = Math.DivRem(number1, 10, out digit);
-                List1.Add(digit);
+                NumArray[i] = UserNumber % 10;
+                UserNumber /= 10;
             }
-            List1.Reverse();
+            return NumArray;
+        }
 
+        public static int[] CreateArrays(int[] NumberArr1, int[] NumberArr2)
+        {
+            int[] SumArray = new int[NumberArr1.Length];
 
-            List<int> List2 = new List<int>();
-            while (number2 > 0)
+            for (int i = 0; i < NumberArr1.Length; i++)
             {
-                int digit2;
-                number2 = Math.DivRem(number2, 10, out digit2);
-                List2.Add(digit2);
+                SumArray[i] = NumberArr1[i] + NumberArr2[i];
             }
-            List2.Reverse();
 
-            // The integer lists are divided into Int[]s.
-            int[] Array1 = List1.ToArray();
-            int[] Array2 = List2.ToArray();
+            return SumArray;
+        }
 
-            // The Arrays are now added together to form a third Array.
-            var List3 = Enumerable.Zip(Array1, Array2, (a, b) => a + b);
-            int[] Array3 = List3.ToArray();
-            
-            //The parts of Array3 are compared, and the output is listed as True or False.
-            if (Array3[0] == Array3[1] &&
-                Array3[0] == Array3[2] &&
-                Array3[0] == Array3[3])
+        public static void Result(int[] SumArray)
+        {
+            int count = 0;
+            for (int i = 0; i < SumArray.Length-1; i++)
             {
-                Console.WriteLine("Each corresponding place in these two numbers add up to the same total: True");
+                if(SumArray[i] != SumArray[i + 1])
+                {
+                    count++;
+                }
+            }
+            if(count > 0)
+            {
+                Console.WriteLine("false");
             }
             else
             {
-                Console.WriteLine("Each corresponding place in these two numbers add up to the same total: False");
+                Console.WriteLine("true");
             }
         }
     }
